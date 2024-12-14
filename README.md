@@ -48,6 +48,39 @@ example:
 `OPS="OpPlayer1,OpPlayer2"`
 
 ## Troubleshooting
+### Ubuntu Docker Run
+```sh
+git clone https://github.com/Goobaroo/docker-pixelmon.git
+sudo chmod -R 777 ./docker-pixelmon
+cd pixelmon
+
+sudo docker run -d \
+  --restart unless-stopped \
+  --name 'minecraft-Pixelmon' \
+  --hostname 'minecraft-Pixelmon' \
+  -e 'EULA'='true' \
+  -e 'JVM_OPTS'='-Xms2048m -Xmx4096m' \
+  -e 'OPS'='' \
+  -e 'MOTD'='Pixel Mon, Gotta PixelMon, DigiPoke.' \
+  -p '25565:25565/tcp' \
+  -v 'data/':'/data':'rw' \
+  'goobaroo/pixelmon:latest'
+```
+### Docker Compose Build
+```sh
+git clone https://github.com/Goobaroo/docker-pixelmon.git ./pixelmon
+sudo chmod -R 777 ./docker-pixelmon
+cd docker-pixelmon
+sudo docker-compose -f docker-compose-build.yml up
+```
+### Docker Compose Pull
+```sh
+git clone https://github.com/Goobaroo/docker-pixelmon.git ./pixelmon
+sudo chmod -R 777 ./docker-pixelmon
+cd docker-pixelmon
+sudo docker-compose up
+```
+
 
 ### Accept the EULA
 Did you pass in the environment variable EULA set to `true`?
