@@ -52,7 +52,7 @@ example:
 ```sh
 git clone https://github.com/Goobaroo/docker-pixelmon.git
 sudo chmod -R 777 ./docker-pixelmon
-cd pixelmon
+cd docker-pixelmon
 
 sudo docker run -d \
   --restart unless-stopped \
@@ -63,19 +63,19 @@ sudo docker run -d \
   -e 'OPS'='' \
   -e 'MOTD'='Pixel Mon, Gotta PixelMon, DigiPoke.' \
   -p '25565:25565/tcp' \
-  -v 'data/':'/data':'rw' \
+  -v './data/':'/data':'rw' \
   'goobaroo/pixelmon:latest'
 ```
 ### Docker Compose Build
 ```sh
-git clone https://github.com/Goobaroo/docker-pixelmon.git ./pixelmon
+git clone https://github.com/Goobaroo/docker-pixelmon.git
 sudo chmod -R 777 ./docker-pixelmon
 cd docker-pixelmon
 sudo docker-compose -f docker-compose-build.yml up
 ```
 ### Docker Compose Pull
 ```sh
-git clone https://github.com/Goobaroo/docker-pixelmon.git ./pixelmon
+git clone https://github.com/Goobaroo/docker-pixelmon.git
 sudo chmod -R 777 ./docker-pixelmon
 cd docker-pixelmon
 sudo docker-compose up
