@@ -1,0 +1,20 @@
+services:
+  pixelmon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: minecraft-Pixelmon
+    hostname: minecraft-Pixelmon
+    restart: unless-stopped
+    environment:
+      - EULA=true
+      - JVM_OPTS=-Xms2048m -Xmx4096m
+      - OPS=
+      - MOTD=Pixel Mon, Gotta PixelMon, DigiPoke.
+    ports:
+      - 25565:25565/tcp
+    volumes:
+      - ./data:/data:rw
+
+volumes:
+  data:
